@@ -1,0 +1,21 @@
+.box-product-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(386px, 386px));
+  grid-template-rows: repeat(auto-fill, minmax(444px, 444px));
+  grid-column-gap: 40px;
+  grid-row-gap: 103px;
+
+  .product-card {
+    display: grid;
+    justify-content: center;
+  }
+}
+
+.box-product-card {
+  .image {
+    height: 338px;
+    width: 356px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
