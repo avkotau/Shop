@@ -1,0 +1,76 @@
+@font-face {
+  font-family: Raleway-Light;
+  src: url("../src/fonts/Raleway/static/Raleway-Light.ttf");
+}
+
+@font-face {
+  font-family: Raleway-Medium;
+  src: url("../src/fonts/Raleway/static/Raleway-Medium.ttf");
+}
+
+@font-face {
+  font-family: Raleway-Regular;
+  src: url("../src/fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+@font-face {
+  font-family: Raleway-Bold;
+  src: url("../src/fonts/Raleway/static/Raleway-Bold.ttf");
+}
+
+.app-container {
+  font-family: Raleway-Regular, serif;
+  font-weight: 400;
+  font-size: 16px;
+  display: grid;
+  max-width: 1440px;
+  margin: 0 auto;
+  grid-template-columns: 100%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "header"
+    "main";
+
+  .header-container {
+    grid-area: header
+  }
+
+  .main-container {
+    grid-area: main
+  }
+
+  .header-container {
+    margin: 0 101px;
+    max-width: 1440px;
+    height: 80px;
+    display: grid;
+    grid-template-columns: 45% 40% 15%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "header header header";
+    //"main main main"
+  }
+
+  .pages-products, .logo {
+    display: grid;
+    justify-self: start;
+    align-self: center;
+  }
+
+  .pages-products {
+    text-transform: uppercase;
+
+    span {
+      padding: 0 16px;
+    }
+  }
+
+  .main-container {
+    display: grid;
+    margin: 80px 102px 191px 100px;
+  }
+
+}
+
+
+
