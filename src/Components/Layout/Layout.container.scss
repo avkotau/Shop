@@ -1,0 +1,19 @@
+.pages-products, .logo {
+  display: grid;
+  justify-self: start;
+  align-self: center;
+}
+
+.pages-products {
+  text-transform: uppercase;
+
+  span {
+    padding: 0 16px;
+  }
+}
+//!!!!!!!!!!!!!!!!
+.link-green {
+  border-bottom: 2px solid #5ECE7B;
+  color: #5ECE7B;
+  padding-bottom: 32px;
+}

@@ -1,0 +1,152 @@
+.product-card-container {
+  display: grid;
+  grid-template-columns: auto 30%;
+  grid-template-rows: auto;
+  //grid-column-gap: 10px;
+  //column-gap: 10px;
+  //grid-row-gap: 15px;
+  //row-gap: 15px;
+  margin-right: 101px;
+
+  .card-images-container {
+    display: grid;
+    grid-template-columns: 79px auto;
+    grid-auto-flow: column;
+
+    .images-collection {
+      display: grid;
+      grid-template-rows: auto auto auto auto auto;
+
+      .image-small {
+        padding-bottom: 40px;
+
+        img {
+          max-width: 79px;
+
+        }
+      }
+    }
+
+    .image-main {
+      text-align: center;
+      align-self: center;
+      padding: 0 100px 0 40px;
+
+      img {
+        width: 610px;
+      }
+    }
+
+
+  }
+
+  .description-product-container {
+    display: grid;
+
+    .brand-product {
+      font-family: Raleway-Bold, serif;
+      font-size: 30px;
+    }
+
+    .name-product {
+      font-family: Raleway-Regular, serif;
+      font-size: 30px;
+
+    }
+
+    .size-product {
+      .size-product-title {
+
+      }
+
+      .size-product-collection {
+        display: flex;
+        column-gap: 12px;
+        //grid-auto-flow: column;
+        li {
+          display: grid;
+          justify-content: center;
+          align-items: center;
+          width: 63px;
+          height: 45px;
+          border: 1px solid #1D1F22;
+        }
+      }
+
+    }
+
+
+    .button-add-product {
+      height: 52px;
+
+      button {
+        width: 292px;
+        height: 52px;
+        background: #5ECE7B;
+        border: none;
+        font-family: Raleway-Bold, serif;
+        font-size: 16px;
+        color: #FFFFFF;
+        text-transform: uppercase;
+      }
+
+    }
+
+    .description-product {
+      max-width: 292px;
+
+      p {
+        font-family: Roboto-Regular, serif;
+        line-height: 25.59px;
+      }
+    }
+
+    ul {
+      padding-top: 8px;
+    }
+  }
+
+
+  .size-product-title, .color-product-title, .prise-product-title {
+    font-family: Roboto-Bold, serif;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  .size-product-collection li {
+    font-family: SourceSansPro-Regular, serif;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .color-product-collection {
+    display: flex;
+    column-gap: 12px;
+
+    li:nth-child(1) {
+      background: #D3D2D5;
+    }
+
+    li:nth-child(2) {
+      background: #2B2B2B;
+    }
+
+    li:nth-child(3) {
+      background: #0F6450;
+    }
+
+    li {
+      border: 0 solid;
+
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .currency-box {
+    display: flex;
+    font-family: Raleway-Bold, serif;
+    font-size: 24px;
+  }
+
+}
