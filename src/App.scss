@@ -18,6 +18,19 @@
   src: url("../src/fonts/Raleway/static/Raleway-Bold.ttf");
 }
 
+@font-face {
+  font-family: Roboto-Bold;
+  src: url("../src/fonts/Roboto/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: Roboto-Regular;
+  src: url("../src/fonts/Roboto/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: SourceSansPro-Regular;
+  src: url("../src/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf");
+}
+
 .app-container {
   font-family: Raleway-Regular, serif;
   font-weight: 400;
@@ -51,26 +64,9 @@
     //"main main main"
   }
 
-  .pages-products, .logo {
-    display: grid;
-    justify-self: start;
-    align-self: center;
-  }
-
-  .pages-products {
-    text-transform: uppercase;
-
-    span {
-      padding: 0 16px;
-    }
-  }
-
   .main-container {
     display: grid;
     margin: 80px 102px 191px 100px;
   }
-
 }
-
-
 
