@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import imagesProducts from "../../jsonpictures/ProductPictures/ProductC.png";
 import AllProductsItem from "./AllProductsItem";
 
+
 interface Props {
     products: object
 }

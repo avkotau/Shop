@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import DropDownComponent from "./DropDownComponent";
 // @ts-ignore
-import basket from "../../img/Empty Cart.png";
+import DropDownList from './DropDownList';
 // @ts-ignore
-import vector from "../../img/vectorUp.png";
-import "./DropDownContainer.scss";
+import basket from '../../img/Empty Cart.png';
+// @ts-ignore
+import vector from '../../img/vectorUp.png';
+import './DropDownContainer.scss';
 
-class DropdownContainer extends Component {
+interface Props {
+    products: object,
+
+}
+
+class DropdownComponent extends Component<Props> {
     state = {
         show: false
     }
@@ -14,14 +20,15 @@ class DropdownContainer extends Component {
     render() {
         const {show} = this.state;
 
+        // @ts-ignore
         return (
             <div className="dropdown-container">
                 <div className="basket-vector">
-                    <div className="vector" onClick={() => this.setState({show: !show})}>
+                    <div className="vector">
                         $
                         <img src={vector} alt="Vector"/>
                     </div>
-                    <div className="basket">
+                    <div className="basket" onClick={() => this.setState({show: !show})}>
                         <img src={basket} alt="Basket"/>
                     </div>
                 </div>
@@ -29,12 +36,13 @@ class DropdownContainer extends Component {
                 {/*<input type="text">input</input>*/}
                 {
                     (show)
-                        ? <DropDownComponent/>
-                        : "It's !show"
+                        //@ts-ignore
+                        ? <DropDownList products={this.props.products} />
+                        : ''
                 }
             </div>
         );
     }
 }
 
-export default DropdownContainer;
+export default DropdownComponent;

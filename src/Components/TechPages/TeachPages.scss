@@ -4,20 +4,25 @@
   .content {
     display: grid;
     align-items: start;
+
+    .title {
+      font-family: Raleway-Regular, serif;
+      font-weight: 300;
+      size: 18px;
+      color: #1D1F22;
+    }
+
+    .price {
+      display: flex;
+      font-family: Raleway-Medium, serif;
+      font-weight: 500;
+      size: 18px;
+    }
   }
 
   &:hover {
     box-shadow: 0 4px 35px rgba(168, 172, 176, 0.19);
   }
 
-  .title {
-    font-family: Raleway-Light, serif;
-    font-weight: 300;
-  }
 
-  .price {
-    font-family: Raleway-Medium, serif;
-    font-weight: 500;
-    display: flex;
-  }
 }

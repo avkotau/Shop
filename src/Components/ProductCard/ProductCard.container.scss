@@ -43,37 +43,9 @@
   .description-product-container {
     display: grid;
 
-    .brand-product {
-      font-family: Raleway-Bold, serif;
-      font-size: 30px;
-    }
 
-    .name-product {
-      font-family: Raleway-Regular, serif;
-      font-size: 30px;
 
-    }
 
-    .size-product {
-      .size-product-title {
-
-      }
-
-      .size-product-collection {
-        display: flex;
-        column-gap: 12px;
-        //grid-auto-flow: column;
-        li {
-          display: grid;
-          justify-content: center;
-          align-items: center;
-          width: 63px;
-          height: 45px;
-          border: 1px solid #1D1F22;
-        }
-      }
-
-    }
 
 
     .button-add-product {
@@ -106,47 +78,5 @@
     }
   }
 
-
-  .size-product-title, .color-product-title, .prise-product-title {
-    font-family: Roboto-Bold, serif;
-    font-size: 18px;
-    text-transform: uppercase;
-  }
-
-  .size-product-collection li {
-    font-family: SourceSansPro-Regular, serif;
-    font-size: 16px;
-    text-transform: uppercase;
-  }
-
-  .color-product-collection {
-    display: flex;
-    column-gap: 12px;
-
-    li:nth-child(1) {
-      background: #D3D2D5;
-    }
-
-    li:nth-child(2) {
-      background: #2B2B2B;
-    }
-
-    li:nth-child(3) {
-      background: #0F6450;
-    }
-
-    li {
-      border: 0 solid;
-
-      width: 32px;
-      height: 32px;
-    }
-  }
-
-  .currency-box {
-    display: flex;
-    font-family: Raleway-Bold, serif;
-    font-size: 24px;
-  }
 
 }

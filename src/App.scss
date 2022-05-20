@@ -22,10 +22,12 @@
   font-family: Roboto-Bold;
   src: url("../src/fonts/Roboto/Roboto-Bold.ttf");
 }
+
 @font-face {
   font-family: Roboto-Regular;
   src: url("../src/fonts/Roboto/Roboto-Regular.ttf");
 }
+
 @font-face {
   font-family: SourceSansPro-Regular;
   src: url("../src/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf");
@@ -35,6 +37,7 @@
   font-family: Raleway-Regular, serif;
   font-weight: 400;
   font-size: 16px;
+  position: relative;
   display: grid;
   max-width: 1440px;
   margin: 0 auto;
@@ -43,6 +46,7 @@
   grid-template-areas:
     "header"
     "main";
+
 
   .header-container {
     grid-area: header

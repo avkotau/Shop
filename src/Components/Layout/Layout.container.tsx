@@ -3,11 +3,17 @@ import { NavLink, Outlet } from "react-router-dom";
 // @ts-ignore
 import logo from "../../img/a-logo.svg";
 import "./Layout.container.scss";
-import DropdownContainer from "../DropdownContainer/DropdownContainer";
+import DropdownComponent from "../DropdownContainer/DropdownContainer";
+
+interface Props {
+    products: object,
+
+}
+
 // @ts-ignore
 let changeColorLink = ({isActive}) => (isActive ? "link-green" : '')
 
-class LayoutContainer extends Component {
+class LayoutContainer extends Component<Props> {
     render() {
         return (
             <>
@@ -32,7 +38,7 @@ class LayoutContainer extends Component {
                         </NavLink>
                     </div>
                     <div className="dropdown-container">
-                        <DropdownContainer/>
+                        <DropdownComponent products={this.props.products}/>
                     </div>
                 </header>
 
