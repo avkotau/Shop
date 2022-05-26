@@ -1,0 +1,27 @@
+.size-product {
+  .size-product-title {
+
+  }
+
+  .size-product-collection {
+    display: flex;
+    column-gap: 12px;
+    //grid-auto-flow: column;
+    li {
+      font-family: SourceSansPro-Regular, serif;
+      font-size: 16px;
+      text-transform: uppercase;
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      width: 63px;
+      height: 45px;
+      border: 1px solid #1D1F22;
+
+      &:hover {
+        background: #1D1F22;
+        color: #FFFFFF;
+      }
+    }
+  }
+}

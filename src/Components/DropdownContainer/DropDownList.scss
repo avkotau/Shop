@@ -1,0 +1,69 @@
+.dropdown-list-container {
+  position: absolute;
+  top: 80px;
+  right: 72px;
+  width: 325px;
+  max-height: 677px;
+  background: #FFFFFF;
+  //background: gray;
+  z-index: 1;
+
+
+  .dropdown-list-collection-container {
+    margin: 32px 16px;
+
+    .description-product-container {
+      //где Правильно указать стили если я один компонент повторяю в нескольких местах проекта но с разными css
+      display: grid;
+      grid-template-columns: auto 24px 121px;
+    }
+
+    .bag-title, .total-amount-products {
+      font-family: Raleway-Bold, serif;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .total-amount-products-title {
+      font-family: Roboto-Regular, serif;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+
+      .button-item {
+        width: 143px;
+        height: 43px;
+        background: #FFFFFF;
+        border: 1px solid #1D1F22;
+
+        &:hover {
+          background: #5ECE7B;
+          color: #FFFFFF;
+          border: 0;
+        }
+
+        //border: 1px solid #1D1F22;
+      }
+    }
+
+  }
+
+}
+
+
+
+.grey-background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 80px;
+  z-index: 1;
+  background: rgba(57, 55, 72, 0.22);
+}
+

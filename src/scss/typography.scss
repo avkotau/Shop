@@ -1,0 +1,31 @@
+.size-product-title, .color-product-title, .prise-product-title, .capacity-product-title, .other-attributes-title {
+  font-family: Roboto-Bold, serif;
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+.currency-box {
+  display: flex;
+  font-family: Raleway-Bold, serif;
+  font-size: 24px;
+}
+.brand-product {
+  font-family: Raleway-Bold, serif;
+  font-size: 30px;
+}
+
+.name-product {
+  font-family: Raleway-Regular, serif;
+  font-size: 30px;
+
+}
+.title-category {
+  font-family: Raleway-Regular, serif;
+  font-weight: 400;
+  font-size: 42px;
+  padding-bottom: 103px;
+
+  & {
+    text-transform: capitalize;
+  }
+}

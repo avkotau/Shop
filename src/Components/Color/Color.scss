@@ -1,0 +1,23 @@
+.color-product-collection {
+  display: flex;
+  column-gap: 12px;
+
+  li:nth-child(1) {
+    //background: #44FF03;
+  }
+
+  li:nth-child(2) {
+    //background: #2B2B2B;
+  }
+
+  li:nth-child(3) {
+    //background: #0F6450;
+  }
+
+  li {
+    border: 0 solid;
+
+    width: 32px;
+    height: 32px;
+  }
+}

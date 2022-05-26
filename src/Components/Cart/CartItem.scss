@@ -1,0 +1,24 @@
+.description-product-container {
+  padding: 24px 0;
+
+  .brand-product {
+    padding-bottom: 16px;
+  }
+
+  .name-product, .prise-product {
+    padding-bottom: 20px;
+  }
+
+  .cart-count-container {
+    display: grid;
+    align-content: space-between;
+    text-align: center;
+    .cart-button {
+      width: 45px;
+      height: 45px;
+      border: 1px solid #1D1F22;
+      background: white;
+
+    }
+  }
+}

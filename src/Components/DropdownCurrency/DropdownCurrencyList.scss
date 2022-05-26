@@ -1,0 +1,22 @@
+.dropdown-menu {
+  display: grid;
+  grid-template-rows: 33.3% 33.3% 33.3%;
+  width: 114px;
+  height: 169px;
+  top: 80px;
+  box-shadow: 0 4px 35px rgba(168, 172, 176, 0.19);
+  background: #FFFFFF;
+
+  li {
+    display: grid;
+    align-content: center;
+    padding-left: 20px;
+    text-transform: uppercase;
+
+    &:hover {
+
+      background: #EEEEEE;
+
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.card-container {
+  display: grid;
+
+  .card-title {
+    padding-bottom: 55px;
+    border-bottom: 1px solid #E5E5E5;
+
+    span {
+      font-family: Raleway-Bold, serif;
+      font-weight: 700;
+      font-size: 32px;
+      text-transform: uppercase;
+    }
+  }
+
+  .description-product-container {
+    display: grid;
+    grid-template-columns: auto 45px minmax(200px, 200px);
+    grid-template-rows: auto;
+    grid-column-gap: 24px;
+  }
+}

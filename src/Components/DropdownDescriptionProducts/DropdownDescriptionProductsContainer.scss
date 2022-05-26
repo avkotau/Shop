@@ -1,0 +1,55 @@
+.dropdown-description-product-container {
+  display: grid;
+  grid-template-columns: auto 24px 124px;
+  grid-column-gap: 8px;
+  padding: 32px 0;
+
+  //.description-product-container {
+
+
+  .brand-product, .name-product {
+    font-family: Raleway-Light, serif;
+    font-size: 16px;
+    font-weight: 300;
+    padding-bottom: 16px;
+  }
+
+  .currency-box {
+    font-family: Raleway-Medium, serif;
+    font-size: 16px;
+  }
+
+  .size-product-title, .color-product-title, .prise-product-title, .capacity-product-title, .other-attributes-title {
+    font-family: Raleway-Medium, serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: capitalize;
+    //padding-bottom: 8px;
+
+  }
+
+  //}
+
+  .name-product, .prise-product {
+    padding-bottom: 4px;
+  }
+
+  .cart-count-container {
+    display: grid;
+    text-align: center;
+
+    .cart-button {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #1D1F22;
+      background: white;
+
+    }
+  }
+
+  .drop-image-container {
+    img {
+      width: 100%;
+    }
+  }
+}
