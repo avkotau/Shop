@@ -43,7 +43,7 @@ class ProductCardContainer extends Component<Props> {
         });
 
         let otherShow = this.props.product.attributes.map((item: any) => {
-            console.log(item.name)
+
             return (item.name !== "Size" && item.name !== "Color" && item.name !== "Capacity"? <OtherAttributes product={item}/> : null);
         });
 
