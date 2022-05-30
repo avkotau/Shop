@@ -9,12 +9,12 @@ interface Props {
 class Size extends Component<Props> {
     state = {value: ''};
     chooseSize = (e: any) => {
-        console.log(e.target)
+        //console.log(e.target)
         this.setState({value: e.target.value});
     };
 
     render() {
-        console.log(this.state.value)
+        //console.log(this.state.value)
 
         let size = this.props.product.items.map((item: { value: any; }) => {
             return <li onClick={this.chooseSize.bind(this)} key={item.value}>{item.value}</li>
