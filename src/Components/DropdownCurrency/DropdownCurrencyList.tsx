@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import DropdownCurrencyContainer from "./DropdownCurrencyContainer";
-// @ts-ignore
-import vector from '../../img/vectorUp.png';
 import './DropdownCurrencyList.scss';
 
 class DropdownCurrencyList extends Component {

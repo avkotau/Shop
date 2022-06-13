@@ -1,4 +1,4 @@
-import React, { Component, useRef } from 'react';
+import React, { Component } from 'react';
 // @ts-ignore
 import vectorUp from "../../img/vectorUp.svg";
 // @ts-ignore
@@ -52,8 +52,6 @@ class DropdownCurrencyContainer extends Component {
 
     render() {
         const {show} = this.state;
-        // @ts-ignore
-        // @ts-ignore
 
         return (
             <>

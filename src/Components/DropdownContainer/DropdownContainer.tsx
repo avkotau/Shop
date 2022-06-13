@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import DropDownList from './DropDownList';
 // @ts-ignore
 import basket from '../../img/Empty Cart.svg';
-// @ts-ignore
-import vector from '../../img/vectorUp.png';
 import './DropDownContainer.scss';
 import DropdownCurrencyContainer from "../DropdownCurrency/DropdownCurrencyContainer";
 
@@ -13,10 +11,10 @@ interface Props {
 
 }
 
-interface HandleNameChangeInterface {
-    currentTarget: any;
-    target: HTMLInputElement;
-}
+// interface HandleNameChangeInterface {
+//     currentTarget: any;
+//     target: HTMLInputElement;
+// }
 
 class DropdownComponent extends Component<Props> {
     // @ts-ignore

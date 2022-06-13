@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 import './Cart.container.scss';
-import Size from '../Size/Size';
-import Color from '../Color/Color';
-import Capacity from '../Capacity/Capacity';
-import OtherAttributes from '../OtherAttributes/OtherAttributes';
 import CartList from "./CartList";
 
 interface Props {

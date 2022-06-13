@@ -62,7 +62,8 @@ export async function loadJobs() {
              
         }`;
 
-    const {data: {category}} = await client.query({query});
-    // console.log(category.products)
-    return category.products
+    const {data} = await client.query({query});
+    // console.log(data)
+    debugger
+    return data
 }

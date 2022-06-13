@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './DropDownList.scss';
-import DropDownItem from "./DropDownItem";
-import CartList from "../Cart/CartList";
-import data from "../../jsonpictures/data.json";
 import DropdownDescriptionProductsContainer from "../DropdownDescriptionProducts/DropdownDescriptionProductsContainer";
-import AllProductsList from "../AllProducts/AllProductsList";
-import CartContainer from "../Cart/Cart.container";
+
 
 
 interface Props {
@@ -31,6 +27,7 @@ class DropDownList extends Component<Props> {
         return (
             <>
                 <div className="grey-background" onClick={e => this.props.func(e.currentTarget === e.target)}>
+                </div>
                     {/*@ts-ignore*/}
                     <div className="dropdown-list-container">
                         <div className="dropdown-list-collection-container">
@@ -44,16 +41,16 @@ class DropDownList extends Component<Props> {
                             </div>
                             <div className="button-container">
                                 {/*@ts-ignore*/}
-                                <button className="button-item">
+                                <Link to="all/cart"><button className="button-item">
                                     {/*@ts-ignore*/}
-                                    <Link to="all/cart" className="btn btn-primary">View bag</Link></button>
+                                    View bag </button></Link>
                                 {/*@ts-ignore*/}
                                 <button className="button-item">CHECK OUT</button>
                             </div>
                         </div>
 
                     </div>
-                </div>
+
             </>
         );
     }

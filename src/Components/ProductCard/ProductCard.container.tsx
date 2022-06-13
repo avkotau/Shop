@@ -4,8 +4,6 @@ import Color from '../Color/Color';
 import Capacity from '../Capacity/Capacity';
 import OtherAttributes from '../OtherAttributes/OtherAttributes';
 import './ProductCard.container.scss';
-// @ts-ignore
-import collectionImage1 from '../../jsonpictures/ProductPictures/ProductD.png';
 
 interface Props {
     product: { name: string, id: string, inStock: boolean, gallery: any, description: any, attributes: any, prices: any, brand: string }

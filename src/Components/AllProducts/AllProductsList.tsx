@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-// @ts-ignore
-import imagesProducts from "../../jsonpictures/ProductPictures/ProductC.png";
 import AllProductsItem from "./AllProductsItem";
 
 

@@ -1,12 +1,12 @@
 .dropdown-list-container {
   position: absolute;
-  //top: 80px;
+  top: 80px;
   right: 72px;
   width: 325px;
   max-height: 677px;
   background: #FFFFFF;
   //background: gray;
-  z-index: 1;
+  z-index: 2;
 
 
   .dropdown-list-collection-container {
@@ -40,7 +40,7 @@
         height: 43px;
         background: #FFFFFF;
         border: 1px solid #1D1F22;
-
+        cursor: pointer;
         &:hover {
           background: #5ECE7B;
           color: #FFFFFF;
@@ -58,12 +58,21 @@
 
 
 .grey-background {
-  width: 100%;
-  height: 100%;
-  position: absolute;
+  //width: 100%;
+  //height: 100%;
+  //position: absolute;
+  //left: 0;
+  //top: 80px;
+  //z-index: 1;
+  //background: rgba(57, 55, 72, 0.22);
+
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
   left: 0;
-  top: 80px;
-  z-index: 1;
+  z-index: 2;
   background: rgba(57, 55, 72, 0.22);
+  transition: opacity .15s linear;
 }
 

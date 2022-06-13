@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import DropdownDescriptionProductsList from "./DropdownDescriptionProductsList";
 import Size from "../Size/Size";
 import Color from "../Color/Color";
 import Capacity from "../Capacity/Capacity";
 import OtherAttributes from "../OtherAttributes/OtherAttributes";
-import CarouselContainer from "../Carousel/CarouselContainer";
 import './DropdownDescriptionProductsContainer.scss';
 
 interface Props {
