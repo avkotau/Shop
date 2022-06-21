@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "./query/apolloClient";
+import redusers from "./redux/redusers";
 
 
 const root = ReactDOM.createRoot(
@@ -16,11 +17,13 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
+        <ApolloProvider client={client}>
         <Provider store={store}>
-            <ApolloProvider client={client}>
+
 
                 <App/>
-            </ApolloProvider>
+
         </Provider>
+        </ApolloProvider>
     </React.StrictMode>
 );

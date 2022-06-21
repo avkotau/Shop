@@ -1,6 +1,7 @@
 import { gql } from "@apollo/client";
 // @ts-ignore
 import { client } from "./apolloClient";
+import store from "../redux/store";
 
 export async function loadJobs() {
 
@@ -65,5 +66,11 @@ export async function loadJobs() {
     const {data} = await client.query({query});
     // console.log(data)
     debugger
+    // return store.dispatch({
+    //     type: "ALLPRODUCTS",
+    //     data: data
+    // })
+
     return data
 }
+// loadJobs()

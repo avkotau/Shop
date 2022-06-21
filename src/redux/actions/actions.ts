@@ -13,10 +13,12 @@ export const decrementAction = () => {
 }
 
 export const addAllProducts = (dispatch: object) => {
-    debugger
+    // debugger
+    console.log("dispatch" + dispatch)
     return {
         type: ALLPRODUCTS,
         payload: dispatch
+
     }
 }
 // default {

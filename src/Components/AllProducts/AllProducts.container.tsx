@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import imagesProducts from '../../jsonpictures/ProductPictures/ProductC.png';
 import AllProductsList from './AllProductsList';
 
-interface Props {
+interface AppProps {
     products: object,
     category: string
 }
 
-class AllPageContainer extends Component<Props> {
+class AllPageContainer extends Component<AppProps> {
 
     render() {
         return (

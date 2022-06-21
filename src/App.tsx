@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import { addAllProducts } from "./redux/actions/actions";
 import { ApolloProvider } from "@apollo/client"
 import { Provider } from "react-redux";
+import redusers from "./redux/redusers";
 
 const inc = () => {
 
@@ -29,68 +30,78 @@ const incm = () => {
 store.subscribe(() => {
 
 
-    console.log('Store change', store.getState())
+    // console.log('Store change', store.getState())
 })
 
-class App extends Component<object, any> {
+interface AppProps {
+    data: any,
+    reducer: any,
+    categoryName: any
+}
+
+class App extends Component<AppProps, any> {
     constructor(props: any) {
-        debugger
+
         super(props);
-        debugger
+
         this.state = {
-            // data: [],
+
             show: false
 
         }
+
     }
 
-    async componentDidMount ()  {
-        debugger
-        const data = await loadJobs();
-        this.setState({data})
-        mapDispatchToProps(data)
+    componentDidMount() {
+        loadJobs().then((res => {
+            return store.dispatch({
+                type: "ALLPRODUCTS",
+                data: res
+            })
+        }));
+        console.log("hello")
+        //this.setState({data})
+        // mapDispatchToProps(data)
     }
 
     render() {
         debugger
+        const categoryName = this.props.data.reducer.data ? this.props.data.reducer.data.category.name : ""
+        // console.log(data)
         return (
             <>
-                {/*<Provider store={store}>*/}
-                    {
-                        (this.state.data)
-                            ? <div className="app-container">
-                                <BrowserRouter>
-                                    <button onClick={inc}> +1</button>
-                                    <button onClick={incm}> -1</button>
-                                    <RouteContainer name={this.state.data.category.name}/>
-                                </BrowserRouter>
-                            </div>
-                            : ""
-                    }
-                {/*</Provider>*/}
+                {
+                    this.props.data && categoryName &&
+                    <div className="app-container">
+                        <BrowserRouter>
+                            <button onClick={inc}> +1</button>
+                            <button onClick={incm}> -1</button>
+                            {/*{categoryName}*/}
+                            <RouteContainer/>
+                        </BrowserRouter>
+                    </div>
+
+                }
             </>
         );
     }
 }
 
 
-const mapStateToProps = (data: any, state: any) => {
+const mapStateToProps = (reducer: object, data: any, state: any) => {
     debugger
     return {
-        data
+        data: reducer
     }
 }
-
-
-const mapDispatchToProps = (data: any) => {
-    debugger
-return {
-    addAllProducts
-}
-
-
-}
+//
+//
+// const mapDispatchToProps = (data: any) => {
+//     // debugger
+//     return {
+//         addAllProducts
+//     }
+// }
 
 // @ts-ignore
-export default connect( mapStateToProps, mapDispatchToProps())(App);
-// export default App;
+export default connect(mapStateToProps)(App);
