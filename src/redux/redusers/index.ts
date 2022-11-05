@@ -1,7 +1,8 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import counterReducer from "./redusers";
-
+import counterReducer, { chooseProductAttribute } from "./redusers";
+import { changeCurrency } from "./redusers";
+//debugger
 export default combineReducers({
-    reducer: counterReducer,
-
+    reducer: counterReducer, changeCurrency, chooseProductAttribute
+    // currency: changeCurrency
 })

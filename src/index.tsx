@@ -17,13 +17,15 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>
+
         <ApolloProvider client={client}>
-        <Provider store={store}>
+            <Provider store={store}>
 
 
                 <App/>
 
-        </Provider>
+            </Provider>
         </ApolloProvider>
+
     </React.StrictMode>
 );

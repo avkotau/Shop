@@ -4,17 +4,19 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import AllPageContainer from '../Components/AllProducts/AllProducts.container';
 import TechPageContainer from '../Components/TechPages/TechPage.container';
 import ClothesPageContainer from '../Components/ClothesPages/ClothesPage.container';
-import data from '../jsonpictures/data.json';
+// import data from '../jsonpictures/data.json';
 import LayoutContainer from '../Components/Layout/Layout.container';
 import ProductCardContainer from "../Components/ProductCard/ProductCard.container";
 import CartContainer from '../Components/Cart/Cart.container';
 import { connect } from "react-redux";
 
 interface AppProps {
-     data: any
+    data: any,
+
+
 }
 
-class RouteContainer extends Component<AppProps> {
+class RouteContainer extends Component<AppProps, any> {
     constructor(props: any) {
 
         super(props);
@@ -25,30 +27,37 @@ class RouteContainer extends Component<AppProps> {
     }
 
     render() {
-        debugger
+
 //         const data = this.props
- console.log(this.props.data.reducer.data.category.name)
+//  console.log(this.props.data.reducer.data.category.name)
+//   console.log(this.props.data.reducer.product)
+
+        //let product = this.props.data.reducer.product
+        // let categoryName = this.props.data.reducer.data.category.name
         return (
             <div>
-                {this.props.data.reducer.data.category.name}
+                {/*{categoryName}*/}
                 <Routes>
-                    <Route path='/' element={<LayoutContainer products={data.category.products}/>}>
+                    <Route path='/' element={<LayoutContainer products={this.props.data.category.products}/>}>
                         <Route index element={<Navigate replace to='/all'/>}/>
                         {/*@ts-ignore*/}
-                        <Route path='all'
-                               element={<AllPageContainer products={data.category.products}
-                                                          category={data.category.name}/>}/>
-                        {/*<Route path='all'*/}
-                        {/*       element={<AllPageContainer products={data.category.products}*/}
-                        {/*                                  category={data.category.name}/>}/>*/}
+                        <Route path='all' element={<AllPageContainer products={this.props.data.category.products}
+                               />}/>
+                        {/*<Route path='all' element={<AllPageContainer />}/>*/}
+
                         {/*@ts-ignore*/}
-                        <Route path='tech' element={<TechPageContainer products={data.categories[1].products}/>}/>
+                        <Route path='tech' element={<TechPageContainer products={this.props.data.categories[1].products}/>}/>
                         {/*@ts-ignore*/}
-                        <Route path='clothes' element={<ClothesPageContainer products={data.categories[0].products}/>}/>
+                        <Route path='clothes' element={<ClothesPageContainer products={this.props.data.categories[0].products}/>}/>
                         {/*@ts-ignore*/}
-                        <Route path='all/item' element={<ProductCardContainer product={data.category.products[0]}/>}/>
+                    {/*@ts-ignore*/}
+                            <Route path="all/:id" element={<ProductCardContainer />}/>
+
                         {/*@ts-ignore*/}
-                        <Route path='all/cart' element={<CartContainer product={data.category.products[0]} slides={data.category.products[0].gallery}/>}/>
+
+                        {/*{`${this.props.product.id}`}*/}
+                        {/*@ts-ignore*/}
+                        <Route path='cart' element={<CartContainer product={this.props.data.category.products[0]} slides={this.props.data.category.products[0].gallery}/>}/>
                     </Route>
                 </Routes>
             </div>
@@ -57,10 +66,12 @@ class RouteContainer extends Component<AppProps> {
 }
 
 
-const mapStateToProps = (reducer: object) => {
-console.log(reducer)
+const mapStateToProps = ( data: any) => {
+debugger
     return {
-        data: reducer
+        data: data.reducer.data,
+        // currency: this.props.data.changeCurrency.currency
+        currency: data.changeCurrency.currency
     }
 }
 

@@ -20,19 +20,26 @@ class CartItem extends Component<Props> {
         let brand = this.props.product.brand;
         let nameProduct = this.props.product.name;
 
-        let currency = this.props.product.prices[0].currency;
-
+        let label = this.props.product.prices[0].currency.label;
+        let symbol = this.props.product.prices[0].currency.symbol;
+debugger
         let amount = this.props.product.prices[0].amount;
 
+        // let sizeShow = this.props.product.attributes.map((item: any) => {
+        //     return (item.name === "Size" ? <Size product={item} key={this.props.product.id}/> : null);
+        // });
         let sizeShow = this.props.product.attributes.map((item: any) => {
-            return (item.name === "Size" ? <Size product={item} key={this.props.product.id}/> : null);
+            // @ts-ignore
+            return (item.name === "Size" ? <Size /> : null);
         });
 
         let colorShow = this.props.product.attributes.map((item: any) => {
+            // @ts-ignore
             return (item.name === "Color" ? <Color product={item} key={this.props.product.id}/> : null);
         });
 
         let capacityShow = this.props.product.attributes.map((item: any) => {
+            // @ts-ignore
             return (item.name === "Capacity" ? <Capacity product={item} key={this.props.product.id}/> : null);
         });
 
@@ -54,7 +61,7 @@ class CartItem extends Component<Props> {
                         <div className="prise-product">
                             <div>
                                 <ul className="currency-box">
-                                    <li className="currency">{currency}</li>
+                                    <li className="currency">{label}{symbol}</li>
                                     <li className="amount-currency">{amount}</li>
                                 </ul>
                             </div>

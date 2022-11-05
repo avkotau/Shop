@@ -21,7 +21,7 @@ class ClothesPageContainer extends Component<Props> {
                         <div className="content">
                             <div className="title">{item.name}</div>
                             <div className="price">
-                                <div className="currency">{item.prices[0].currency}</div>
+                                <div className="currency">{item.prices[0].currency.label}{item.prices[0].currency.symbol}</div>
                                 <div className="amount">{item.prices[0].amount}</div>
                             </div>
                         </div>

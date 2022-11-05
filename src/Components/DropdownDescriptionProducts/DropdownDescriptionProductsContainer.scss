@@ -4,31 +4,40 @@
   grid-column-gap: 8px;
   padding: 32px 0;
 
-  //.description-product-container {
+  .description-product {
 
 
-  .brand-product, .name-product {
-    font-family: Raleway-Light, serif;
-    font-size: 16px;
-    font-weight: 300;
-    padding-bottom: 16px;
+    .brand-product, .name-product {
+      font-family: Raleway-Light, serif;
+      font-size: 16px;
+      font-weight: 300;
+      padding-bottom: 16px;
+    }
+
+    .currency-box {
+      font-family: Raleway-Medium, serif;
+      font-size: 16px;
+    }
+
+    .size-product-title, .color-product-title, .prise-product-title, .capacity-product-title, .other-attributes-title {
+      font-family: Raleway-Medium, serif;
+      font-weight: 400;
+      font-size: 14px;
+      text-transform: capitalize;
+      //padding-bottom: 8px;
+
+    }
+
+    .size-product-collection {
+      display: flex;
+      column-gap: 8px;
+
+      li {
+        width: 24px;
+        height: 24px;
+      }
+    }
   }
-
-  .currency-box {
-    font-family: Raleway-Medium, serif;
-    font-size: 16px;
-  }
-
-  .size-product-title, .color-product-title, .prise-product-title, .capacity-product-title, .other-attributes-title {
-    font-family: Raleway-Medium, serif;
-    font-weight: 400;
-    font-size: 14px;
-    text-transform: capitalize;
-    //padding-bottom: 8px;
-
-  }
-
-  //}
 
   .name-product, .prise-product {
     padding-bottom: 4px;
@@ -52,4 +61,5 @@
       width: 100%;
     }
   }
+
 }

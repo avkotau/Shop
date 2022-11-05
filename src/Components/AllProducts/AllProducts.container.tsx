@@ -4,25 +4,35 @@ import { Link } from "react-router-dom";
 // @ts-ignore
 import imagesProducts from '../../jsonpictures/ProductPictures/ProductC.png';
 import AllProductsList from './AllProductsList';
+// import data from "../../jsonpictures/data.json";
+import { connect } from "react-redux";
 
 interface AppProps {
     products: object,
-    category: string
+    categoryName: string
 }
 
 class AllPageContainer extends Component<AppProps> {
 
     render() {
+
         return (
             <>
                 <div className="product-list">
-                    <div className="title-category">{this.props.category}</div>
+                    <div className="title-category">{this.props.categoryName}</div>
                     {/*@ts-ignore*/}
-                    <Link to="/all/item" className="box-product-card"><AllProductsList products={this.props.products}/></Link>
+                    <Link to={"/all/item"} className="box-product-card"><AllProductsList/></Link>
+                    {/*<Link to="/all/item" className="box-product-card"><AllProductsList products={this.props.products}/></Link>*/}
                 </div>
             </>
         );
     }
 }
+const mapStateToProps = (data: any) => {
 
-export default AllPageContainer;
+    return {
+        categoryName: data.reducer.data.category.name,
+        // product: data.reducer.product
+    }
+}
+export default connect(mapStateToProps)(AllPageContainer);

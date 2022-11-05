@@ -10,33 +10,17 @@ import { addAllProducts } from "./redux/actions/actions";
 import { ApolloProvider } from "@apollo/client"
 import { Provider } from "react-redux";
 import redusers from "./redux/redusers";
-
-const inc = () => {
-
-
-    store.dispatch({
-        type: 'INCREMENT'
-
-    })
-}
-const incm = () => {
+// @ts-ignore
+import loader from '../src/img/1488.gif'
 
 
-    store.dispatch({
-        type: 'DECREMENT'
-    })
-}
 
-store.subscribe(() => {
-
-
-    // console.log('Store change', store.getState())
-})
 
 interface AppProps {
     data: any,
-    reducer: any,
-    categoryName: any
+    product: any,
+    // reducer: any,
+    // categoryName: any,
 }
 
 class App extends Component<AppProps, any> {
@@ -59,29 +43,32 @@ class App extends Component<AppProps, any> {
                 data: res
             })
         }));
-        console.log("hello")
         //this.setState({data})
         // mapDispatchToProps(data)
     }
 
     render() {
         debugger
-        const categoryName = this.props.data.reducer.data ? this.props.data.reducer.data.category.name : ""
-        // console.log(data)
+        //const categoryName = this.props.data.reducer.data.category.name
+        // this.props.data.reducer.data ? this.props.data.reducer.data.category.name : ""
         return (
             <>
-                {
-                    this.props.data && categoryName &&
-                    <div className="app-container">
-                        <BrowserRouter>
-                            <button onClick={inc}> +1</button>
-                            <button onClick={incm}> -1</button>
-                            {/*{categoryName}*/}
-                            <RouteContainer/>
-                        </BrowserRouter>
-                    </div>
-
-                }
+                <div className="app-container">
+                    {
+                        //удалить одну дату in ADDPRODUCTTOCART
+                        this.props.data.reducer.data
+                            ? <BrowserRouter>
+                                {/*<button > +1</button>*/}
+                                {/*<button onClick={incm}> -1</button>*/}
+                                {/*@ts-ignore data={this.props.data.reducer.data}*/}
+                                {/*<RouteContainer />*/}
+                                {/*@ts-ignore*/}
+                                <RouteContainer />
+                                {/*<RouteContainer data={this.props.data.reducer.data} currency={this.props.data.changeCurrency.currency}/>*/}
+                            </BrowserRouter>
+                            : <div><img src={loader} alt="gif"/></div>
+                    }
+                </div>
             </>
         );
     }
@@ -89,8 +76,10 @@ class App extends Component<AppProps, any> {
 
 
 const mapStateToProps = (reducer: object, data: any, state: any) => {
-    debugger
+debugger
+    //  //@ts-ignore
     return {
+
         data: reducer
     }
 }

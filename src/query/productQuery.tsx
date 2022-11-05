@@ -26,7 +26,10 @@ export async function loadJobs() {
                                 }
                         }
                           prices {
-                            currency
+                            currency {
+                               label
+                               symbol
+                          }
                             amount
                           }
                           brand
@@ -53,19 +56,25 @@ export async function loadJobs() {
                           }
                         }
                         prices {
-                          currency
+                          currency {
+                            label
+                            symbol
+                          }
                           amount
                         }
                         brand
                       }
                     }
-                    currencies
+                    currencies {
+                      label
+                      symbol
+                    }
              
         }`;
 
     const {data} = await client.query({query});
     // console.log(data)
-    debugger
+
     // return store.dispatch({
     //     type: "ALLPRODUCTS",
     //     data: data

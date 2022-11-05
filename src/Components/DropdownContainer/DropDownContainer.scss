@@ -7,6 +7,28 @@
     font-family: Raleway-Medium, serif;
     font-weight: 400;
     display: flex;
+    .basket {
+      position: relative;
+    }
+    .basket .count-product {
+      font-family: Roboto, serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 14px;
+      display: grid;
+      position: absolute;
+      top: -35.75%;
+      right: 15.11%;
+      width: 20px;
+      height: 20px;
+      border-radius: 60px;
+      background: #1D1F22;
+      color: white;
+      text-align: center;
+      span {
+        align-self: center;
+      }
+    }
 
     .basket, .vector {
       &:hover {

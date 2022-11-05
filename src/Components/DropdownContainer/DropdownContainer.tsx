@@ -5,9 +5,13 @@ import DropDownList from './DropDownList';
 import basket from '../../img/Empty Cart.svg';
 import './DropDownContainer.scss';
 import DropdownCurrencyContainer from "../DropdownCurrency/DropdownCurrencyContainer";
+import { connect } from "react-redux";
 
 interface Props {
     products: object,
+    count: number,
+    value: number,
+    currency: {symbol: string},
 
 }
 
@@ -22,6 +26,7 @@ class DropdownComponent extends Component<Props> {
         super(props);
         this.state = {
             modal: false,
+
         }
         this.output = this.output.bind(this)
     }
@@ -32,6 +37,7 @@ class DropdownComponent extends Component<Props> {
     }
 
     render() {
+let showCountProductInCart = this.props.count ? <div className="count-product"><span>{this.props.count}</span></div> : null
         // @ts-ignore
         const {modal} = this.state;
 
@@ -39,21 +45,24 @@ class DropdownComponent extends Component<Props> {
             //@ts-ignore
             <div className="dropdown-container" value={this.state.value}>
                 <div className="basket-vector">
-                    <div>{"\uFF04"}</div>
+                    <div>{this.props.currency.symbol}</div>
                     <div className="vector">
                         <DropdownCurrencyContainer/>
                     </div>
+
+                    {/*<div>{this.props.product === undefined ? 0 : this.props.product.length}</div>*/}
                     <div className="basket" onClick={() => this.setState({modal: !modal})}>
                         {/*<div onClick={this.showModal}>*/}
                         <img src={basket} alt="Basket"/>
                         {/*</div>*/}
+                        {showCountProductInCart}
                     </div>
                 </div>
 
                 {
                     (modal)
                         //@ts-ignore
-                        ? <DropDownList products={this.props.products} func={this.output}/>
+                        ? <DropDownList productCart={this.props.productCart} value={this.props.value} func={this.output}/>
                         : ''
                 }
             </div>
@@ -61,4 +70,14 @@ class DropdownComponent extends Component<Props> {
     }
 }
 
-export default DropdownComponent;
+const mapStateToProps = (data: any) => {
+debugger
+    return {
+        count: data.reducer.count,
+        productCart: data.reducer.productCart,
+        value: data.reducer.value,
+        currency: data.changeCurrency.currency,
+    }
+}
+
+export default connect(mapStateToProps)(DropdownComponent);

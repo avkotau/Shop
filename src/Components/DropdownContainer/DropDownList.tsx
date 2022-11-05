@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import './DropDownList.scss';
 import DropdownDescriptionProductsContainer from "../DropdownDescriptionProducts/DropdownDescriptionProductsContainer";
+import { connect } from "react-redux";
 
 
 
 interface Props {
     products: object,
-    func: any
+    func: any,
+    productCart: any
 
 }
 
@@ -34,14 +36,14 @@ class DropDownList extends Component<Props> {
                             <div className="bag-title">my bag,</div>
                             <span>{3} items</span>
                             {/*@ts-ignore*/}
-                            <DropdownDescriptionProductsContainer product={this.props.products[2]}/>
+                            <DropdownDescriptionProductsContainer product={this.props.productCart} value={this.props.value}/>
                             <div className="total-amount-container">
                                 <div className="total-amount-products-title">Total</div>
                                 <div className="total-amount-products">$200.00</div>
                             </div>
                             <div className="button-container">
                                 {/*@ts-ignore*/}
-                                <Link to="all/cart"><button className="button-item">
+                                <Link to="cart"><button className="button-item">
                                     {/*@ts-ignore*/}
                                     View bag </button></Link>
                                 {/*@ts-ignore*/}
@@ -55,5 +57,13 @@ class DropDownList extends Component<Props> {
         );
     }
 }
+
+// const mapStateToProps = () => {
+//     debugger
+//     return {
+//         //@ts-ignore
+//         // productCart: data.reducer.productCart
+//     }
+// }
 
 export default DropDownList;
