@@ -42,13 +42,14 @@ export const productCard = (product: any) => {
     }
 }
 
-export const addProductToCart = (product: any, amount: number, currency: object, size: number) => {
+export const addProductToCart = (product: any, amount: number, currency: object, size: number, idColorProduct: string) => {
 debugger
     return {
         type: ADDPRODUCTTOCART,
         productToCart: product,
         prices: {amount: amount, currency: currency},
-        size: size
+        size: size,
+        idColorProduct: idColorProduct
     }
 }
 export const changeCurrency = (currency: any) => {

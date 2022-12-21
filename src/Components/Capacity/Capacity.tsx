@@ -9,7 +9,9 @@ import { connect } from "react-redux";
 interface AppProps {
     product: { name: string, id: string, items: any, type: string, value: string, chooseProductAttribute: any },
     chooseProductAttribute: any,
-    sizeProduct: any, selectSizeCallback: any, textContent: any,
+    sizeProduct: any,
+    selectSizeCallback: any,
+    textContent: any,
     size: any
 }
 
@@ -39,42 +41,45 @@ class Capacity extends Component<AppProps, AppState> {
 
 
     };
-    render() {
-        let capacity = this.props.product.items.map((item: any) => {
-            return <li>{item.value}</li>
-        });
 
+    render() {
+        // let capacity = this.props.product.items.map((item: any) => {
+        //     return <li>{item.value}</li>
+        // });
+debugger
         return (
             <>
                 <div className="capacity-product">
                     <span className="capacity-product-title">{this.props.product.name}:</span>
                     <ul className="capacity-product-collection">
-                        {/*{capacity}*/}
-                        {this.props.product.items.map((item: any) => (
-                            <li onClick={(e) => {
-                                // @ts-ignore
+                        {/*@ts-ignore*/}
 
-                                debugger
-                                // this.props.chooseProductAttribute(item)
-                                // e.preventDefault();
+                        {this.props.product.items.map((i: any) => (
 
-                                // this.chooseSize(e)
-
-                                // @ts-ignore
-                                //this.props.selectSizeCallback(e.target.textContent)
-                                // console.log(this.props)
-                                console.log(item.value)
+                        <div>
+                            <li  onClick={(e) => {
                                 // @ts-ignore
                                 this.props.selectSizeCallback(e)//e.target.textContent
-
                                 e.preventDefault();
                                 this.chooseSize(e)
-
                                 debugger
-                            }} key={item.id}
-                                // className={this.props.sizeProduct.id === }
+                            }}>{i.value}</li>
 
-                            >{item.value}</li>
+                        {/*<div>*/}
+                        {/*{i.items.map((item: any) => (*/}
+                        {/*<div>*/}
+                        {/*    <input name="milkman" type="checkbox" onClick={(e) => {*/}
+                        {/*        // @ts-ignore*/}
+                        {/*        this.props.selectSizeCallback(e)//e.target.textContent*/}
+                        {/*        e.preventDefault();*/}
+                        {/*        this.chooseSize(e)*/}
+                        {/*        debugger*/}
+                        {/*    }}/>{item.value}*/}
+                        {/*</div>*/}
+                        {/*)*/}
+                        {/*)}*/}
+                        {/*</div>*/}
+                            </div>
                         ))}
                     </ul>
                 </div>
@@ -103,4 +108,4 @@ const mapDispatchToProps = () => {
 
 }
 
-export default connect(mapStateToProps,mapDispatchToProps())(Capacity);
+export default connect(mapStateToProps, mapDispatchToProps())(Capacity);

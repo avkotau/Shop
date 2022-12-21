@@ -25,7 +25,7 @@ export default function counterReducer(state = {
                                        action: {
                                            product: any;
                                            type: string; data: object; productToCart: any[], count: any[], id: any, countIdProductsInCartOverlay: string, idProduct: string,
-                                           countProduct: any, prices: object, size: number
+                                           countProduct: any, prices: object, size: number, idColorProduct: string,
 
 
                                        }) {
@@ -129,15 +129,27 @@ export default function counterReducer(state = {
         case ADDPRODUCTTOCART:
             debugger
             // @ts-ignore
-            let existingProduct = state.productCart.find(x => x.id === action.productToCart.id)
-            if (!existingProduct) {
+            let existingProduct = state.productCart.find(x => x.productToCart.id === action.productToCart.id)
+            // @ts-ignore
+            let existingPricesProduct = state.productCart.find(x => x.prices.amount === action.prices.amount)
+            // @ts-ignore
+            let existingIdColorProduct = state.productCart.find(x => x.idColorProduct === action.idColorProduct)
+            // @ts-ignore
+            let existingIdColorProduct2 = state.productCart.find(x => x.idColorProduct === action.idColorProduct && x.size === action.size)
+            // @ts-ignore
+            let existingSizeProduct = state.productCart.find(x => x.size === action.size && x.productToCart.id === action.productToCart.id)
+            if (action.size && action.idColorProduct) {
+
+
+            if (!existingProduct || !existingSizeProduct || !existingIdColorProduct || !existingPricesProduct || !existingIdColorProduct2) {
 // let prices = action.prices
 
                 debugger
                 return {
                     ...state,
 
-                    productCart: [...state.productCart, action.productToCart],
+                    // productCart: [...state.productCart, action.productToCart],
+                    productCart: [...state.productCart, action],
                     // productCart: {producttocart, prices: prices},
                     // @ts-ignore
                     // productCart: [...state.productCart, [...action.productToCart.prices], action.prices],
@@ -151,10 +163,17 @@ export default function counterReducer(state = {
 
                     // state.count = action.count+1,
                     //  [{...state.productCart[0].id}, action.productToCart]
-                    prices: [action.prices],
-                    size: action.size,
+
+
+                    // prices: [action.prices],
+                    // size: action.size,
                     count: state.count + 1
                 }
+                // if (){
+                //
+                // }
+                // return state
+            }
             }
 
             // break;

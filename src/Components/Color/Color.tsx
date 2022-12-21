@@ -54,7 +54,7 @@ class Color extends Component<AppProps, AppState> {
                     <ul className="color-product-collection">
                         {/*@ts-ignore*/}
                         {/*{color}*/}
-                        {this.props.product.items.map((item: { value: any; } ) => (
+                        {this.props.product.items.map((item: { value: any; id: string} ) => (
                             <li onClick={(e) => {
                                 // @ts-ignore
 
@@ -78,7 +78,7 @@ class Color extends Component<AppProps, AppState> {
                             }}
                                 // className={this.props.sizeProduct.id === }
 
-                                style={{background: item.value}}/>
+                                style={{background: item.value}} id={item.id}/>
                         ))}
                     </ul>
                 </div>

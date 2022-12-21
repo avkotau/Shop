@@ -62,7 +62,7 @@ let showCountProductInCart = this.props.count ? <div className="count-product"><
                 {
                     (modal)
                         //@ts-ignore
-                        ? <DropDownList productCart={this.props.productCart} value={this.props.value} func={this.output}/>
+                        ? <DropDownList productCart={this.props.productCart} value={this.props.value}  func={this.output}/>
                         : ''
                 }
             </div>

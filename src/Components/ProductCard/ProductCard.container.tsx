@@ -11,86 +11,82 @@ import store from "../../redux/store";
 
 interface Props {
     product: { name: string, id: string, inStock: boolean, gallery: any, description: any, attributes: any, prices: any, brand: string },
-    addProductToCart: any, createCountProductsAction: any, currency: {label: string, symbol: string}
+    addProductToCart: any,
+    createCountProductsAction: any,
+    currency: { label: string, symbol: string }
     sizeProduct: any,
 }
+
 interface State {
-    size: any
+    size: any,
+    idColorProduct: string,
+    arr: any[],
+    arr2: any[],
 }
+
 // store.subscribe(() => {
 //
 //
 //     console.log('Store change', store.getState())
 // })
-let arr: any[] = []
+
 
 class ProductCardContainer extends Component<Props, State> {
     // @ts-ignore
     constructor(props) {
         super(props);
         this.state = {
-            size: ''
-
+            size: '',
+            idColorProduct: '',
+            arr: [],
+            arr2: [],
         }
 
     }
 
 
-    getSelectSizeCallback = (e: any) =>  {
+    getSelectSizeCallback = (e: any) => {
         debugger
-        // let index = arr.filter(a => {
-        //     return e.target.className === "backgroundBlack" && a.className === "backgroundBlack"
-        // })
-        //if (index.length > 0 && arr.length <= 3 ) { //|| arr.length === 1
-            // e.target.className = "backgroundWhite"
-            // arr.splice(0, 1 )
-            // index.splice(0, 1)
-        //     return
-        // }
-        if (arr.length <= 1) {
 
-            arr.filter(a => {
+        if (this.state.arr.length <= 1) {
+
+            this.state.arr.filter(a => {
                 if (a.className === "backgroundBlack") {
                     a.className = "backgroundWhite"
                 }
             })
-            arr.splice(0, 1 )
-            arr.push(e.target)
+            this.state.arr.splice(0, 1)
+            this.state.arr.push(e.target)
             e.target.className = "backgroundBlack"
         }
+        this.setState({
+            //size: e.target.textContent,
+            idColorProduct: e.currentTarget.id
+        })
+    }
+    //target.style.background
+    getSelectSizeCallback2 = (e: any) => {
+        debugger
+        // let arr: any[] = []
+        if (this.state.arr2.length <= 1) {
 
+            this.state.arr2.filter(a => {
+                if (a.className === "backgroundBlack") {
+                    a.className = "backgroundWhite"
+                }
+            })
+            this.state.arr2.splice(0, 1)
+            this.state.arr2.push(e.target)
+            e.target.className = "backgroundBlack"
+        }
         this.setState({
             size: e.target.textContent
         })
-        // console.log(e)
+    }
 
-        let size =  e.target.textContent
-        //if(size.length === 0) e.target.className = "backgroundWhite"
-
-        // var arr = ["Привет", "тебе", "Миша"];
-        // arr.splice(1, "Привет"); // начиная с позиции 1, удалить 1 элемент
-        // alert( arr ); //  осталось ["Привет", "Миша"]
-
-        debugger
-
-        // if (this.state.size === e.target.textContent) {
-        //
-        //     if (e.target.textContent) {
-        //         if (e.target.className === "backgroundBlack") {
-        //             e.target.className = "backgroundWhite"
-        //         } else {
-        //
-        //             e.target.className = "backgroundBlack"
-        //         }
-        //     } else {
-        //         return
-        //     }
-        // }
-
-}
     render() {
 
-debugger
+        debugger
         let collectionImage = this.props.product.gallery.map((item: any) => {
             return <div className="image-small"><img src={item} alt=""/></div>
         });
@@ -103,9 +99,9 @@ debugger
         let symbol = this.props.currency.symbol
 
         let amount = this.props.currency.label === "JPY" ? this.props.product.prices[3].amount
-                    : this.props.currency.label === "GBP" ? this.props.product.prices[1].amount
-                        : this.props.currency.label === "AUD" ? this.props.product.prices[2].amount
-                            : this.props.currency.label === "RUB" ? this.props.product.prices[4].amount : this.props.product.prices[0].amount
+            : this.props.currency.label === "GBP" ? this.props.product.prices[1].amount
+                : this.props.currency.label === "AUD" ? this.props.product.prices[2].amount
+                    : this.props.currency.label === "RUB" ? this.props.product.prices[4].amount : this.props.product.prices[0].amount
 
         let createDescription = () => {
             return {__html: this.props.product.description};
@@ -118,7 +114,9 @@ debugger
         let sizeShow = this.props.product.attributes.map((item: any) => {
             //sizes={item} selectSizeCallback
             // @ts-ignore
-            return (item.name === "Size" ? <Size selectSizeCallback={(e) =>this.getSelectSizeCallback(e)} size={this.state.size}/> : null);
+            return (item.name === "Size" ?
+                // @ts-ignore
+                <Size selectSizeCallback={(e) => this.getSelectSizeCallback(e)} size={this.state.size}/> : null);
         });
 
         // let colorShow = this.props.product.attributes.map((item: any) => {
@@ -133,13 +131,14 @@ debugger
         //     return (item.name === "Capacity" ? <Capacity product={item}/> : null);
         // });
         let capacityShow = this.props.product.attributes.map((item: any) => {
-            return (item.name === "Capacity" ? <Capacity selectSizeCallback={(e: any) => this.getSelectSizeCallback(e)}
+            return (item.name === "Capacity" ? <Capacity selectSizeCallback={(e: any) => this.getSelectSizeCallback2(e)}
                                                          size={this.state.size} textContent={undefined}/> : null);
         });
 
         let otherShow = this.props.product.attributes.map((item: any) => {
 
-            return (item.name !== "Size" && item.name !== "Color" && item.name !== "Capacity"? <OtherAttributes product={item}/> : null);
+            return (item.name !== "Size" && item.name !== "Color" && item.name !== "Capacity" ?
+                <OtherAttributes product={item}/> : null);
         });
 
         return (
@@ -171,15 +170,15 @@ debugger
                         </div>
                         <div className="button-add-product">
                             <button onClick={(e) => {
-debugger
+                                debugger
                                 // e.preventDefault();
                                 //this.props.addProductToCard(product, {[product.id]: count})
-                                this.props.addProductToCart(this.props.product, amount, this.props.currency, this.state.size)
+                                this.props.addProductToCart(this.props.product, amount, this.props.currency, this.state.size, this.state.idColorProduct)
                                 // this.props.createCountProductsAction(this.props.product.id)
                                 // @ts-ignore
                                 this.props.createCountProductsAction(this.state.size)
 
-                                }}>add to cart {this.state.size}</button>
+                            }}>add to cart {this.state.size}{this.state.idColorProduct}</button>
                         </div>
                         <div className="description-product">
                             <div dangerouslySetInnerHTML={createDescription()}/>
@@ -192,23 +191,23 @@ debugger
 }
 
 const mapStateToProps = (data: any) => {
-debugger
-  return {
-      product: data.reducer.product,
-      currency: data.changeCurrency.currency,
-      sizeProduct: data.chooseProductAttribute.sizeProduct
-  }
+    debugger
+    return {
+        product: data.reducer.product,
+        currency: data.changeCurrency.currency,
+        sizeProduct: data.chooseProductAttribute.sizeProduct
+    }
 }
 
 const mapDispatchToProps = (dispatch: any) => {
-  // @ts-ignore
+    // @ts-ignore
     return {
-      // addProductToCart
+        // addProductToCart
         // @ts-ignore
-      // addProductToCart: () => dispatch(addProductToCart(idProduct))
+        // addProductToCart: () => dispatch(addProductToCart(idProduct))
         dispatch,
-        ...bindActionCreators({ addProductToCart, createCountProductsAction }, dispatch),
-  }
+        ...bindActionCreators({addProductToCart, createCountProductsAction}, dispatch),
+    }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ProductCardContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductCardContainer);
