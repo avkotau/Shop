@@ -10,7 +10,8 @@ interface AppProps {
     product: { name: string, id: string, items: any, type: string, value: string, chooseProductAttribute: any },
     chooseProductAttribute: any,
     sizeProduct: any, selectSizeCallback: any, textContent: any,
-    size: any
+    size: any,
+
 }
 
 interface AppState {
@@ -87,7 +88,7 @@ class Size extends Component<AppProps, AppState> {
                 // className={this.props.sizeProduct.id === }
             >{item.value}</li>
         ));
-
+// console.log(this.props)
         return (
             <>
 
@@ -110,7 +111,9 @@ class Size extends Component<AppProps, AppState> {
                                 // @ts-ignore
                                 //this.props.selectSizeCallback(e.target.textContent)
                                 // console.log(this.props)
-                                console.log(item.value)
+
+                                //console.log(item.value)
+
                                 // @ts-ignore
                                 this.props.selectSizeCallback(e)//e.target.textContent
 

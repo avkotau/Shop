@@ -25,7 +25,7 @@ export default function counterReducer(state = {
                                        action: {
                                            product: any;
                                            type: string; data: object; productToCart: any[], count: any[], id: any, countIdProductsInCartOverlay: string, idProduct: string,
-                                           countProduct: any, prices: object, size: number, idColorProduct: string,
+                                           countProduct: any, prices: object, size: number, idColorProduct: string, attributes: object
 
 
                                        }) {
@@ -138,7 +138,9 @@ export default function counterReducer(state = {
             let existingIdColorProduct2 = state.productCart.find(x => x.idColorProduct === action.idColorProduct && x.size === action.size)
             // @ts-ignore
             let existingSizeProduct = state.productCart.find(x => x.size === action.size && x.productToCart.id === action.productToCart.id)
-            if (action.size && action.idColorProduct) {
+            // @ts-ignore
+            let existingSizeProduct2 = action.productToCart.attributes.find(x => x.id === "Color" || x.id ===  "Other" || x.id ===  "Capacity")
+            if (action.size && action.idColorProduct || !existingSizeProduct2) {
 
 
             if (!existingProduct || !existingSizeProduct || !existingIdColorProduct || !existingPricesProduct || !existingIdColorProduct2) {

@@ -22,6 +22,7 @@ interface State {
     idColorProduct: string,
     arr: any[],
     arr2: any[],
+    backgroundBlack: string,
 }
 
 // store.subscribe(() => {
@@ -40,6 +41,7 @@ class ProductCardContainer extends Component<Props, State> {
             idColorProduct: '',
             arr: [],
             arr2: [],
+            backgroundBlack: ''
         }
 
     }
@@ -78,6 +80,8 @@ class ProductCardContainer extends Component<Props, State> {
             this.state.arr2.splice(0, 1)
             this.state.arr2.push(e.target)
             e.target.className = "backgroundBlack"
+
+            this.setState({backgroundBlack: e});
         }
         this.setState({
             size: e.target.textContent
@@ -85,7 +89,7 @@ class ProductCardContainer extends Component<Props, State> {
     }
 
     render() {
-
+console.log(this.state.backgroundBlack)
         debugger
         let collectionImage = this.props.product.gallery.map((item: any) => {
             return <div className="image-small"><img src={item} alt=""/></div>
@@ -116,7 +120,7 @@ class ProductCardContainer extends Component<Props, State> {
             // @ts-ignore
             return (item.name === "Size" ?
                 // @ts-ignore
-                <Size selectSizeCallback={(e) => this.getSelectSizeCallback(e)} size={this.state.size}/> : null);
+                <Size selectSizeCallback={(e) => this.getSelectSizeCallback2(e)} size={this.state.size}/> : null);
         });
 
         // let colorShow = this.props.product.attributes.map((item: any) => {

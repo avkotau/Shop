@@ -180,7 +180,9 @@ class DropdownDescriptionProductsContainer extends Component<Props> {
                         </div>
                     </div>
                 )
+
             }
+
         )
 
         return (
