@@ -28,7 +28,7 @@ debugger
         // @ts-ignore
         return (
             <>
-                <div className="grey-background1" onClick={e => this.props.func(e.currentTarget === e.target)}>
+                <div className="grey-background" onClick={e => this.props.func(e.currentTarget === e.target)}>
                 </div>
                 {/*@ts-ignore*/}
                 <div className="dropdown-list-container">

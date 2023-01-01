@@ -80,7 +80,7 @@ class ProductCardContainer extends Component<Props, State> {
             this.state.arr2.splice(0, 1)
             this.state.arr2.push(e.target)
             e.target.className = "backgroundBlack"
-
+//ПРОСМОТРЕТЬ ЭТУ ЧАСТЬ КОДА!!!
             this.setState({backgroundBlack: e});
         }
         this.setState({
